@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Jette là.</title>
+  <meta name="description" content="Trouve la poubelle ou le point de tri le plus proche. Signale, propose, participe." />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div id="app">
+    <div class="topbar">
+      <div class="brand"><h1>Jette là.</h1></div>
+      <div class="topbar-actions">
+        <button class="pill-btn icon-only" id="helpBtn" title="Comment ça marche">?</button>
+        <button class="pill-btn" id="feedbackBtn" title="Donner un avis">
+          <span class="pill-label">★ Donner un avis</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-body">
+        <div class="hero-title">Trouve la poubelle la plus proche</div>
+        <div class="hero-sub" id="heroSub">Chargement des points référencés…</div>
+      </div>
+      <button class="btn primary" id="heroBtn">Me localiser</button>
+    </div>
+
+    <div class="filters">
+      <div class="chip-toggle" id="catFilter">
+        <button data-val="all" class="active">Tous types</button>
+        <button data-val="corbeille">Corbeilles</button>
+        <button data-val="tri">Tri sélectif</button>
+        <button data-val="collecte">Points de collecte</button>
+      </div>
+      <input type="search" id="communeSearch" placeholder="Filtrer par commune…" />
+      <button class="btn" id="favFilterBtn" aria-pressed="false">★ Mes favoris</button>
+    </div>
+
+    <div class="layout">
+      <div class="map-pane">
+        <div id="mapContainer"></div>
+      </div>
+      <div class="list-pane">
+        <h2 id="listTitle">Chargement…</h2>
+        <div class="cards" id="mainCards"></div>
+      </div>
+    </div>
+
+    <footer>Jette là. — données © les contributeurs d'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, licence ODbL, + contributions communautaires</footer>
+
+    <div class="overlay" id="detailOverlay" hidden><div class="sheet" id="detailSheet"></div></div>
+    <div class="overlay" id="addOverlay" hidden><div class="sheet" id="addSheet"></div></div>
+    <div class="overlay" id="feedbackOverlay" hidden><div class="sheet" id="feedbackSheet"></div></div>
+    <div class="overlay" id="onboardOverlay" hidden><div class="sheet" id="onboardSheet"></div></div>
+    <div class="overlay" id="adminOverlay" hidden><div class="sheet" id="adminSheet"></div></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
